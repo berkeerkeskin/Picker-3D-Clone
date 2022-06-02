@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidBody;
     
     [SerializeField] private float 
+        sideMoveMultiplier,
         forwardSpeed,
         sideSpeed;
 
@@ -26,12 +27,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         GetInput();
+        MoveSideways();
     }
 
     private void FixedUpdate()
     {
         MoveForward();
-        //MoveSideways();
+        
     }
 
     private void ComponentInitialization()
@@ -54,14 +56,14 @@ public class Player : MonoBehaviour
     {
         if (_horizontalInput > 0)
         {
-            Vector3 sidewaysMove = Vector3.right * sideSpeed * Time.fixedDeltaTime;
+            Vector3 sidewaysMove = Vector3.right * sideSpeed * Time.fixedDeltaTime * sideMoveMultiplier;
             //_rigidBody.MovePosition(_rigidBody.position + sidewaysMove);
-            _rigidBody.velocity += sidewaysMove;
+            _rigidBody.velocity = sidewaysMove;
         }else if (_horizontalInput < 0)
         {
-            Vector3 sidewaysMove = Vector3.left * sideSpeed * Time.fixedDeltaTime;
+            Vector3 sidewaysMove = Vector3.left * sideSpeed * Time.fixedDeltaTime * sideMoveMultiplier;
             //_rigidBody.MovePosition(_rigidBody.position + sidewaysMove);
-            _rigidBody.velocity += sidewaysMove;
+            _rigidBody.velocity = sidewaysMove;
         }
     }
 }
