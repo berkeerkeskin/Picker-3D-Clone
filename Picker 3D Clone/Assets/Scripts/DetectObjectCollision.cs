@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class DetectObjectCollision : MonoBehaviour
 {
+    public static event Action SectionPassed = delegate {  };
+    
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private SectionData sectionData;
     [SerializeField] private Transform leftBarrier, rightBarrier;
@@ -62,6 +64,8 @@ public class DetectObjectCollision : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Move Player Again
         Player.MagnetPlayer.isPlayerStopped = false;
+        // Notify UI 
+        SectionPassed.Invoke();
     }
 
     void ComponentInitialization()
