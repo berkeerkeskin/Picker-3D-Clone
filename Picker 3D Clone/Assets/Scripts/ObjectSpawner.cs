@@ -41,7 +41,7 @@ public class ObjectSpawner : MonoBehaviour
             yield return new WaitForSeconds(0.08f);
             Instantiate(pyramid, spawnPoint.position, Quaternion.Euler(-90, 0, 0));
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void RotatePropeller()

@@ -40,7 +40,7 @@ public class DetectObjectCollision : MonoBehaviour
 
     void MovePlatformAfterObjectLimitIsReached()
     {
-        if (numberOfDetectedObjects > sectionData.objectLimit && !_objectLimitReached)
+        if (numberOfDetectedObjects >= sectionData.objectLimit && !_objectLimitReached)
         {
             _objectLimitReached = true;
             StartCoroutine("MovePlatform");
