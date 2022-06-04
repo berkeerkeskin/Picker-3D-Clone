@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b8e31d548e84d4ca34f278da7efd3f, type: 3}
   m_Name: Level1-Section1
   m_EditorClassIdentifier: 
-  objectLimit: 0
+  objectLimit: 10
   sectionMaterial: {fileID: 2100000, guid: 866b607f94d0440848cdcc44b6c78e54, type: 2}
   hasPickup: 0
   hasSizeUp: 0

@@ -55,9 +55,9 @@ public class Player : MonoBehaviour
     {
         if (!isPlayerStopped)
         {
-            Vector3 forwardMove = Vector3.forward * forwardSpeed * Time.deltaTime;
+            Vector3 forwardMove = Vector3.forward * forwardSpeed;
             //_rigidBody.MovePosition(_rigidBody.position + forwardMove);
-            _rigidBody.MovePosition(_rigidBody.position + forwardMove);
+            _rigidBody.velocity = new Vector3(_rigidBody.velocity.x, 0f, forwardSpeed);
         }
         else
         {
@@ -71,12 +71,12 @@ public class Player : MonoBehaviour
         {
             Vector3 sidewaysMove = Vector3.right * sideSpeed;
             //_rigidBody.MovePosition(_rigidBody.position + sidewaysMove);
-            _rigidBody.velocity = sidewaysMove;
+            _rigidBody.velocity = new Vector3(sideSpeed, 0f, _rigidBody.velocity.z);
         }else if (_horizontalInput < 0)
         {
             Vector3 sidewaysMove = Vector3.left * sideSpeed;
             //_rigidBody.MovePosition(_rigidBody.position + sidewaysMove);
-            _rigidBody.velocity = sidewaysMove;
+            _rigidBody.velocity = new Vector3(-sideSpeed, 0f, _rigidBody.velocity.z);
         }
         else
         {
