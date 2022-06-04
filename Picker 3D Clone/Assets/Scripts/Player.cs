@@ -26,12 +26,7 @@ public class Player : MonoBehaviour
         }
         ComponentInitialization();
     }
-    
-    void Start()
-    {
-        
-    }
-    
+
     void Update()
     {
         GetInput();

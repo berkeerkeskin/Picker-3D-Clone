@@ -18,7 +18,7 @@ public class DetectObjectCollision : MonoBehaviour
 
     private void Start()
     {
-        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        ComponentInitialization();
     }
 
     private void Update()
@@ -62,5 +62,11 @@ public class DetectObjectCollision : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Move Player Again
         Player.MagnetPlayer.isPlayerStopped = false;
+    }
+
+    void ComponentInitialization()
+    {
+        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        countText.text = "0 / " + sectionData.objectLimit;
     }
 }
