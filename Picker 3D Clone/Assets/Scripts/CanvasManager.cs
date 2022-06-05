@@ -5,11 +5,26 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-
+    public static CanvasManager Canvas { get; private set; }
     [SerializeField] private TextMeshProUGUI currentLevel, nextLevel;
     [SerializeField] private List<Image> sections;
 
-    private int _sectionNumber, _currentLevelNumber;
+    private int _sectionNumber;
+    public int currentLevelNumber;
+
+    private void Awake()
+    {
+        //Singleton Design Pattern
+        if (Canvas == null)
+        {
+            Canvas = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -28,9 +43,9 @@ public class CanvasManager : MonoBehaviour
 
     void LevelPassed()
     {
-        _currentLevelNumber++;
-        currentLevel.text = _currentLevelNumber + "";
-        nextLevel.text = (_currentLevelNumber + 1) + "";
+        currentLevelNumber++;
+        currentLevel.text = currentLevelNumber + "";
+        nextLevel.text = (currentLevelNumber + 1) + "";
     }
 
     void SectionPassed()
@@ -66,11 +81,11 @@ public class CanvasManager : MonoBehaviour
     void Initializations()
     {
         _sectionNumber = 1;
-        _currentLevelNumber = 1;
+        currentLevelNumber = 1;
 
         ChangeSectionColors(Color.yellow, Color.white, Color.white);
 
-        currentLevel.text = _currentLevelNumber + "";
-        nextLevel.text = (_currentLevelNumber + 1) + "";
+        currentLevel.text = currentLevelNumber + "";
+        nextLevel.text = (currentLevelNumber + 1) + "";
     }
 }

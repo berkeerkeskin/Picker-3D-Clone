@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +19,10 @@ public class LevelFinished : MonoBehaviour
                 levelFinishedCanvas.SetActive(false);
                 scoreCanvas.SetActive(true);
                 Player.MagnetPlayer.isPlayerStopped = false;
+                if (CanvasManager.Canvas.currentLevelNumber > 1 && CanvasManager.Canvas.currentLevelNumber % 3 == 1)
+                {
+                    SceneManager.LoadScene(0);
+                }
             }
         }
     }

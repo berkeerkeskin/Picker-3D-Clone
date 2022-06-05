@@ -1,16 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public static Player MagnetPlayer { get; private set; }
     private Rigidbody _rigidBody;
-    
-    [SerializeField] private float 
-        sideMoveMultiplier,
+
+    [SerializeField] private Transform startPosition;
+    [SerializeField] private float
         forwardSpeed,
         sideSpeed;
 
@@ -18,11 +14,16 @@ public class Player : MonoBehaviour
     public bool isPlayerStopped = false;
     void Awake()
     {
+        
         //Singleton Design Pattern
         if (MagnetPlayer == null)
         {
             MagnetPlayer = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
         ComponentInitialization();
     }
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void ComponentInitialization()
     {
+        MagnetPlayer.transform.position = startPosition.position; 
         _rigidBody = GetComponent<Rigidbody>();
     }    
     private void GetInput()
