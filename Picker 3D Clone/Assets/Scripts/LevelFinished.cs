@@ -1,13 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelFinished : MonoBehaviour
 {
-    [SerializeField] private GameObject scoreCanvas, levelFinishedCanvas;
+    private GameObject _scoreCanvas, _levelFinishedCanvas;
     private bool _isLevelFinished;
     private void Awake()
     {
-        levelFinishedCanvas.SetActive(false);
+        Initialization();
+    }
+
+    private void Start()
+    {
+        _levelFinishedCanvas.SetActive(false);
     }
 
     private void Update()
@@ -16,8 +22,8 @@ public class LevelFinished : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
-                levelFinishedCanvas.SetActive(false);
-                scoreCanvas.SetActive(true);
+                _levelFinishedCanvas.SetActive(false);
+                _scoreCanvas.SetActive(true);
                 Player.MagnetPlayer.isPlayerStopped = false;
                 if (CanvasManager.Canvas.currentLevelNumber > 1 && CanvasManager.Canvas.currentLevelNumber % 3 == 1)
                 {
@@ -34,9 +40,15 @@ public class LevelFinished : MonoBehaviour
             //Stop Player
             Player.MagnetPlayer.isPlayerStopped = true;
             //Change Screen
-            scoreCanvas.SetActive(false);
-            levelFinishedCanvas.SetActive(true);
+            _scoreCanvas.SetActive(false);
+            _levelFinishedCanvas.SetActive(true);
             _isLevelFinished = true;
         }
+    }
+
+    void Initialization()
+    {
+        _scoreCanvas = GameObject.FindGameObjectWithTag("ScoreCanvas");
+        _levelFinishedCanvas = GameObject.FindGameObjectWithTag("LevelFinishedCanvas");
     }
 }

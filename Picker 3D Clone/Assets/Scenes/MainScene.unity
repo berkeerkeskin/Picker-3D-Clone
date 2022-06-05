@@ -2469,8 +2469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dcd2e5f53c94457b7f919aec462282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCanvas: {fileID: 1726484614}
-  levelFinishedCanvas: {fileID: 1455484079}
 --- !u!64 &147569024
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8220,16 +8218,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459676637}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 15.940001, z: 2.3000002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.34, z: -10.9}
+  m_LocalScale: {x: 0.15176865, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2052539404}
   - {fileID: 1227817872}
   - {fileID: 85819365}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1886409932}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460804463
 GameObject:
@@ -15749,8 +15747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dcd2e5f53c94457b7f919aec462282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCanvas: {fileID: 1726484614}
-  levelFinishedCanvas: {fileID: 1455484079}
 --- !u!64 &797799146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26431,7 +26427,6 @@ Transform:
   m_Children:
   - {fileID: 1726484615}
   - {fileID: 1112813874}
-  - {fileID: 1455484080}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26444,7 +26439,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289405248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91e39eb9e7dc846d6b75f0cb45cc1b6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 46ec0afa722cb4bc08fcfa14911ee9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1291433891
@@ -26748,8 +26743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dcd2e5f53c94457b7f919aec462282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCanvas: {fileID: 1726484614}
-  levelFinishedCanvas: {fileID: 1455484079}
 --- !u!64 &1307223473
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31051,7 +31044,7 @@ GameObject:
   - component: {fileID: 1455484081}
   m_Layer: 0
   m_Name: LevelFinishedCanvas
-  m_TagString: Untagged
+  m_TagString: LevelFinishedCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31069,8 +31062,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 526004857}
-  m_Father: {fileID: 1289405249}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -36796,7 +36789,7 @@ GameObject:
   - component: {fileID: 1726484619}
   m_Layer: 5
   m_Name: ScoreCanvas
-  m_TagString: Untagged
+  m_TagString: ScoreCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41034,6 +41027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f20ea8443e5146a7a74c242d7735de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {fileID: 2065096046}
   forwardSpeed: 10
   sideSpeed: 15
   isPlayerStopped: 0
@@ -41131,6 +41125,7 @@ Transform:
   - {fileID: 707448004}
   - {fileID: 578790335}
   - {fileID: 1533109845}
+  - {fileID: 459676639}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45584,6 +45579,37 @@ Transform:
   - {fileID: 1284986998}
   m_Father: {fileID: 210718844}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2065096045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065096046}
+  m_Layer: 0
+  m_Name: StartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065096046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065096045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0.6, z: 13.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068749625
 GameObject:
