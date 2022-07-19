@@ -1,4 +1,5 @@
 # Picker-3D-Clone
+Made in 1 day
 This project is Hyper Casual Game Picker 3D Clone.
 This game consist of 3 levels and has never ending infinite loop.
 Controls = A-D or LeftArrow-RightArrow for side movement.
